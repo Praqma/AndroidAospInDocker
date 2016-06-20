@@ -9,8 +9,9 @@ If you want to build master branch It requires openjdk-8. TBD instruction how to
 
 ###Requirements
 This setup has been tested on AWS EC2 instance c4.4xlarge 30 Gb RAM, 16VCPU 62ECU 320 Gb SSD. OS Ubuntu Trusty 14.04 LTS, kernel version: 3.13.0-77-generic. Docker version: 1.11.2. Docker compose version: 1.7.1
+In this documantation it supposed you have a host or AWS instance with docker v1.11.2 and docker-compose v1.7.1 are installed. See [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
-see [Build Environment](https://source.android.com/source/requirements.html#hardware-requirements) to know more about minimum HW requirements. 
+See [Build Environment](https://source.android.com/source/requirements.html#hardware-requirements) to know more about minimum HW requirements. 
 
 
 ### Preparations 
