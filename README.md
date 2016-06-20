@@ -26,12 +26,12 @@ See [Build Environment](https://source.android.com/source/requirements.html#hard
  chmod a+x ~/bin/repo
  # Repo is a python script, so
  apt-get install python
-```
+ ```
 
  Make a directory download the sources to.
  Go to this directory and set git global configuration:
 
-```
+ ```
  git config --global user.name "Your Name"
  git config --global user.email "you@example.com"
  mdkir ~/source
@@ -39,23 +39,21 @@ See [Build Environment](https://source.android.com/source/requirements.html#hard
  # -b android-6.0.1_r40 is to checkout sources for Nexus 9
  repo init -u https://android.googlesource.com/platform/manifest -b android-6.0.1_r40
  repo sync
-```
-  
-See [Installing Repo and Download sources](https://source.android.com/source/downloading.html#installing-repo) for more details
+ ```
+ See [Installing Repo and Download sources](https://source.android.com/source/downloading.html#installing-repo) for more details
 
 2. Clone this project:
-    
-```
-cd ~/
-git clone https://github.com/Praqma/AndroidAospInDocker.git
-```
+ ```
+ cd ~/
+ git clone https://github.com/Praqma/AndroidAospInDocker.git
+ ```
 
 3. Make two more directories: one for ccache and one to set build output from the repo directory
 
-```
-mkdir ~/ccache
-mkdir ~/build
-```
+ ```
+ mkdir ~/ccache
+ mkdir ~/build
+ ```
 
 4. Change the docker-compose file with new paths:
 Set the paths to source directory, ccache and build output directories on the host.   
