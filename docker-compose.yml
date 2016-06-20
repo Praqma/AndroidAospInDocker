@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  androidrom:
+    build: ./
+    volumes:
+      - /root/android-mm:/android-repo
+      - /root/ccache:/ccache
+      - /root/out:/temp/out/dist
