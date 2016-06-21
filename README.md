@@ -8,11 +8,14 @@ This is a setup for building Android Marshmallow, branch: android-6.0.1\_r40, fo
 If you want to build master branch It requires openjdk-8. TBD instruction how to change Dockerfile with new version of java and new user 
 
 ### Requirements
-This setup has been tested on AWS EC2 instance c4.4xlarge 30 Gb RAM, 16VCPU 62ECU 320 Gb SSD. OS Ubuntu Trusty 14.04 LTS, kernel version: 3.13.0-77-generic. Docker version: 1.11.2. Docker compose version: 1.7.1
-In this documantation it supposed you have a host or AWS instance with docker v1.11.2 and docker-compose v1.7.1 are installed. See [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+This setup has been tested on
+
+* AWS EC2 instance c4.4xlarge 30 Gb RAM, 16VCPU 62ECU 320 Gb SSD. OS Ubuntu Trusty 14.04 LTS, kernel version: 3.13.0-77-generic. Docker version 1.11.2, Docker compose version 1.7.1
+* Digital ocean droplet 16 Gb RAM, 8 VCPU 160 Gb SSD. OS Ubuntu Xenial 16.04 LTS, kernel version 4.4.0-24-generic. Docker version 1.11.2, Docker compose version 1.7.1
+
+In this documantation we assume that you have a similar host with docker v1.11.2 and docker-compose v1.7.1 installed. See [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
 See [Build Environment](https://source.android.com/source/requirements.html#hardware-requirements) to know more about minimum HW requirements. 
-
 
 ### Preparations 
 1. Download Android sources. To save a build time this setup supposed to map sources dir as a volume disk. You will do it once and be able reuse the same sources for many containers.
@@ -79,8 +82,8 @@ After the build finishes you will find image in the build directory you redirect
 
 ## Known problems
 
-#### Parallel jobs execution
+#### Parallel jobs execution on Ububtu 14.04
 
-For reasons we are still investigating, 'make' build in docker container can not support more then 3 parallel jobs. It leads to defunct java processes those can not be killed any other way then reboot the host. There are a few reference on the problems with java in docker could be connected with this particular problem.
+For reasons we are still investigating, 'make' build in docker container can not support more then 3 parallel jobs. It leads to defunct java processes those can not be killed any other way then reboot the host. There are a few reference on the problems with java in docker could be connected with this particular problem. This problem obversved only on Ubuntu 14.04, 16.04 worked just fine.
 
  
