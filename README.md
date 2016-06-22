@@ -11,9 +11,11 @@ If you want to build master branch It requires openjdk-8. TBD instruction how to
 This setup has been tested on
 
 * AWS EC2 instance c4.4xlarge 30 Gb RAM, 16VCPU 62ECU 320 Gb SSD. OS Ubuntu Trusty 14.04 LTS, kernel version: 3.13.0-77-generic. Docker version 1.11.2, Docker compose version 1.7.1
+* AWS EC2 instance m4.4xlarge 64 Gb RAM Pure, 16VCPU 240 Gb SSD. OS RedHat RHEL 7.2, kernel version: 3.10.0-327.el7.x86_64. Docker version 1.11.2, Docker compose version 1.7.1
 * Digital ocean droplet 16 Gb RAM, 8 VCPU 160 Gb SSD. OS Ubuntu Xenial 16.04 LTS, kernel version 4.4.0-24-generic. Docker version 1.11.2, Docker compose version 1.7.1
 
 In this documantation we assume that you have a similar host with docker v1.11.2 and docker-compose v1.7.1 installed. See [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+See [Install Docker on RedHat](https://docs.docker.com/engine/installation/linux/rhel/)
 
 See [Build Environment](https://source.android.com/source/requirements.html#hardware-requirements) to know more about minimum HW requirements. 
 
@@ -84,6 +86,6 @@ After the build finishes you will find image in the build directory you redirect
 
 #### Parallel jobs execution on Ububtu 14.04
 
-For reasons we are still investigating, 'make' build in docker container can not support more then 3 parallel jobs. It leads to defunct java processes those can not be killed any other way then reboot the host. There are a few reference on the problems with java in docker could be connected with this particular problem. This problem obversved only on Ubuntu 14.04, 16.04 worked just fine.
+For reasons we are still investigating, 'make' build in docker container can not support more then 3 parallel jobs. It leads to defunct java processes those can not be killed any other way then reboot the host. There are a few reference on the problems with java in docker could be connected with this particular problem. This problem obversved only on Ubuntu 14.04, 16.04 worked just fine. It is working fine for RedHat RHEL 7.2 also.
 
  
