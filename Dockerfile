@@ -1,5 +1,8 @@
 FROM ubuntu:14.04
 
+ENV http_proxy ${http_proxy:-}
+ENV https_proxy ${https_proxy:-}
+ENV no_proxy ${no_proxy:-}
 ENV OUT_DIR_COMMON_BASE /temp/out/dist
 ENV USER root
 
