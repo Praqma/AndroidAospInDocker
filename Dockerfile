@@ -26,6 +26,11 @@ RUN chmod 755 /usr/local/bin/*
 
 RUN apt-get update && apt-get install -y software-properties-common python-software-properties
 
+# We need this because of this https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/
+# Here is solution https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html
+RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.1.3/dumb-init_1.1.3_amd64
+RUN chmod +x /usr/local/bin/dumb-init
+
 # Extras that android-x86.org and android-ia need
 RUN apt-get update && apt-get install -y gettext python-libxml2 yasm bc
 RUN apt-get update && apt-get install -y squashfs-tools genisoimage dosfstools mtools
@@ -41,4 +46,4 @@ RUN chmod 755 /script/build.sh
 
 WORKDIR /android-repo
 
-CMD ["/script/build.sh"]
+CMD ["/usr/local/bin/dumb-init", "--", "/script/build.sh"]
