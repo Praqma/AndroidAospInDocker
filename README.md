@@ -1,3 +1,6 @@
+---
+maintainer: alexsedova
+---
 # How to build Android aosp in Docker container
 ----
 ## Build Android 6.0 *Marshmallow*
